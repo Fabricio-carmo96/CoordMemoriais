@@ -6,28 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memorial para Coordenadas</title>
   </head>
-  <style type="text/css">
-    div {
+  <style <style type="text/css">
+    /* Add styles to the body */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    
+    /* Add styles to the header */
+    h1 {
+      color: green;
+      margin-top: 30px;
+    }
+  
+    /* Add styles to the container div */
+    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 30px;
     }
-
-    input {
+  
+    /* Add styles to the input elements */
+    input[type="file"] {
       margin-top: 10px;
+      padding: 10px;
     }
-
+  
+    /* Add styles to the select element */
+    select {
+      margin-top: 10px;
+      padding: 10px;
+    }
+  
+    /* Add styles to the textarea element */
     textarea {
       margin-top: 15px;
       width: 70%;
+      padding: 10px;
+    }
+  
+    /* Add styles to the button element */
+    button {
+      margin-top: 15px;
+      padding: 10px;
     }
   </style>
+  And here's how the HTML code would look like with the styles applied:
+  
+  php
+  Copy code
+  <!DOCTYPE html>
+  <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Memorial para Coordenadas</title>
+      <style type="text/css">
+        /* Add styles to the body */
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+        }
+        
+        /* Add styles to the header */
+        h1 {
+          color: green;
+          margin-top: 30px;
+        }
+  
+        /* Add styles to the container div */
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 30px;
+        }
+  
+        /* Add styles to the input elements */
+        input[type="file"] {
+          margin-top: 10px;
+          padding: 10px;
+        }
+  
+        /* Add styles to the select element */
+        select {
+          margin-top: 10px;
+          padding: 10px;
+        }
+  
+        /* Add styles to the textarea element */
+        textarea {
+          margin-top: 15px;
+          width: 70%;
+          padding: 10px;
+        }
+  
+        /* Add styles to the button element */
+        button {
+          margin-top: 15px;
+          padding: 10px;
+        }
+      </style>
 
   <body>
     <center>
       <h1 style="color: green">Extrair Vértices e Coordenadas de Memoriais</h1>
       <div>
-        <input type="file" id="inputElement" />
+        <p>Escolha um arquivo em formato TXT</p>
+        <input type="file" accept=".txt" id="inputElement" />
 
         <label for="memoType">Escolha um tipo de memorial:</label>
 
@@ -49,7 +137,7 @@
       <a
         style="display: none;"
         id="download_link"
-        download="memorial_descritivo_coordenadas.txt"
+        download="memorial_descritivo_coordenadas.xls"
         href="””"
         ></a
       >
