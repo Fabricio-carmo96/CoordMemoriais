@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memorial para Coordenadas</title>
+  </head>
+  <style type="text/css">
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input {
+      margin-top: 10px;
+    }
+
+    textarea {
+      margin-top: 15px;
+      width: 70%;
+    }
+  </style>
+
+  <body>
+    <center>
+      <h1 style="color: green">Converter Memorial em Coordenadas</h1>
+      <div>
+        <input type="file" id="inputElement" />
+
+        <label for="memoType">Escolha um tipo de memorial:</label>
+
+        <select name="memoType" id="memoType">
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+
+        <button id="sub">Enviar arquivo</button>
+        <textarea
+          cols="30"
+          rows="20"
+          placeholder="O memorial irá aparecer aqui"
+        >
+        </textarea>
+      </div>
+      <!-- <button onclick="lerFile()">Ler arquivo</button> -->
+      <a
+        id="download_link"
+        download="memorial_descritivo_coordenadas.txt"
+        href="””"
+        >GERAR ARQUIVOS COM AS COORDENADAS</a
+      >
+	  <button onclick="lerFile()">ler arqivo</button>
+    </center>
+    <script src="script.js"></script>
+  </body>
+</html>
