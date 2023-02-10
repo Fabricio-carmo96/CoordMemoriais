@@ -72,9 +72,5 @@ submit.addEventListener("click", () => {
   reader.readAsText(file);
 });
 
-function lerFile (num) {
-  num = file;
-  console.log(num);
-};
   
 
