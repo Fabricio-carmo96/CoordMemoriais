@@ -36,7 +36,6 @@
           <option value="2">2</option>
         </select>
 
-        <button id="sub">Enviar arquivo</button>
         <textarea
           cols="30"
           rows="20"
@@ -44,14 +43,34 @@
         >
         </textarea>
       </div>
+      <button id="sub" onclick="gerarCoord()">Gerar arquivos com coordenadas</button>
       <!-- <button onclick="lerFile()">Ler arquivo</button> -->
       <a
+        style="display: none;"
         id="download_link"
         download="memorial_descritivo_coordenadas.txt"
         href="””"
-        >GERAR ARQUIVOS COM AS COORDENADAS</a
+        ></a
       >
     </center>
+
+    <div>
+  <h1>Instruções</h1>
+  <h3 style='text-align:left'>Passo a passo de como ultilizar a ferramenta</h3>
+
+  <p>1º - A ferramenta infelizmente não consegue ler arquivos DOC, então precisamos primeiro converter o arquivo DOC para TXT. Existe 2 formas de fazer isso.
+  A primeira é usando o próprio LibreOffice ou Word. Clique em arquivo, depois salvar como, e escolhe Texto - escolha a codificação, é importante que escolham UTF-8 para funcionar perfeitamente.
+  Outra forma de fazer essa conversão é usando algum site, aconselho o seguinte site: <a target="_blank" href=" https://documento.online-convert.com/pt/converter/doc-para-txt"> Conversor DOC para TXT</a>
+ . <br/>
+  
+  2º - Clique no botão Escolher Arquivo e em seguida escolhha o arquivo TXT do memorial.<br/>
+  
+  3º - Escolha o tipo do memorial. (Existe uma seção com os tipos de memoriais caso você esteja em dúvida)<br/>
+  
+  4º - Clique em enviar arquivo. O memorial irá aparecer na caixa de texto embaixo, note que os espaços foram removidos, isso é normal. Confere se está tudo certo com o texto, se não tem nenhum simbolo. Se estiver com alguns simbolos no lugar de acentuação, bem provável que o seu txt não esteje com a codificação utf-8<br/>
+  
+  5º - Por fim clique no botão de gerar arquivos com as coordenadas.<br/></p>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
