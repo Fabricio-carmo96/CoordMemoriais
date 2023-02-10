@@ -25,7 +25,7 @@
 
   <body>
     <center>
-      <h1 style="color: green">Converter Memorial em Coordenadas</h1>
+      <h1 style="color: green">Extrair Vértices e Coordenadas de Memoriais</h1>
       <div>
         <input type="file" id="inputElement" />
 
@@ -34,6 +34,7 @@
         <select name="memoType" id="memoType">
           <option value="1">1</option>
           <option value="2">2</option>
+          <option value="3">3</option>
         </select>
 
         <textarea
@@ -56,20 +57,15 @@
 
     <div>
   <h1>Instruções</h1>
-  <h3 style='text-align:left'>Passo a passo de como ultilizar a ferramenta</h3>
+  <h3 style='text-align:left'>TIPOS DE MEMORIAIS</h3>
+  <p>Abaixo você verá os tipos de memoriais. Acima você tem a opção de escolher tipo de memorial, escolha o número correspondende com o tipo de memorial que você possui</p>
 
-  <p>1º - A ferramenta infelizmente não consegue ler arquivos DOC, então precisamos primeiro converter o arquivo DOC para TXT. Existe 2 formas de fazer isso.
-  A primeira é usando o próprio LibreOffice ou Word. Clique em arquivo, depois salvar como, e escolhe Texto - escolha a codificação, é importante que escolham UTF-8 para funcionar perfeitamente.
-  Outra forma de fazer essa conversão é usando algum site, aconselho o seguinte site: <a target="_blank" href=" https://documento.online-convert.com/pt/converter/doc-para-txt"> Conversor DOC para TXT</a>
- . <br/>
-  
-  2º - Clique no botão Escolher Arquivo e em seguida escolhha o arquivo TXT do memorial.<br/>
-  
-  3º - Escolha o tipo do memorial. (Existe uma seção com os tipos de memoriais caso você esteja em dúvida)<br/>
-  
-  4º - Clique em enviar arquivo. O memorial irá aparecer na caixa de texto embaixo, note que os espaços foram removidos, isso é normal. Confere se está tudo certo com o texto, se não tem nenhum simbolo. Se estiver com alguns simbolos no lugar de acentuação, bem provável que o seu txt não esteje com a codificação utf-8<br/>
-  
-  5º - Por fim clique no botão de gerar arquivos com as coordenadas.<br/></p>
+  <p>Tipo 1: Cuja  descrição  se  inicia  no  vértice  V01  de coordenada Este (X) 687.988,154 m e Norte (Y) 7.843.403,313 m, deste segue [...] Do vértice V01 segue até o vértice V02, de coordenada U T M E= 688.042,0860 m e N= 7.843.346,3460 m, no azimute de 136°34'03", na extensão de 78,450 m; Do vértice V02 segue até o vértice V03, de coordenada U T M E= 688.075,4870 m e N= 7.843.317,9170 m, no azimute de 130°24'09", na extensão de 43,860 m; [...] <br/><br/>
+
+    Tipo 2: Inicia-se a descrição deste perímetro no vértice V 2205, de coordenadas N 7.836.776,122m e E 667.998,291m;   [...] até o vértice V 2206, de coordenadas N 7.836.774,372m e E 667.997,190m;  220°35'41" e 7,49 m até o vértice V 2207, de coordenadas N 7.836.768,682m e E 667.992,314m;  225°56'31" e 13,42 m <br/><br/>
+    
+    Tipo 3: Inicia-se a descrição deste perímetro no vértice  V01, definido pelas coordenadas E: 687.712,161 m e N: 7.827.574,432 m, [...]  até o vértice V02, definido pelas coordenadas E: 687.681,478 m e N: 7.827.575,579 m; [...]  até o vértice V03, definido pelas coordenadas E: 687.685,492 m e N: 7.827.591,964 m; <br/><br/>
+    </p>
     </div>
     <script src="script.js"></script>
   </body>

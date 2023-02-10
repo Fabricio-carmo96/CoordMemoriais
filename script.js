@@ -4,6 +4,7 @@ let select = document.getElementById("memoType");
 const regex1 = /cujadescriçãoseinicianovértice([A-Z][0-9]+)decoordenadaEste([0-9.,]+)meNorte([0-9.,]+)/g;
 const subregex1 = /[A-Z][0-9.,]+segueatéovértice([A-Z][0-9.,]+),decoordenadaUTME=([0-9.,]+)meN=([0-9.,]+)/g;
 const regex2 = /([A-Z][0-9.,]+),decoordenadasN([0-9.,]+)meE([0-9.,]+)/g;
+const regex3 = /([A-Z][0-9.,]+),definidopelascoordenadasE:([0-9.,]+)meN:([0-9.,]+)/g;
 var count = 0;
 var textRegex = "ID,Vértice,N,E\n";
 var file;
@@ -65,6 +66,16 @@ function gerarCoord(){
         textRegex =  textRegex +  `${count};${match[1]};${NsemPonto};${EsemPonto}\n`;
       }
       break;
+
+      case '3':
+        for (const match of file.matchAll(regex3)) {
+          const PrimeiroPonto = match[3].replace(`.`, "");
+          const NsemPonto = PrimeiroPonto.replace(`.`, "");
+          const EsemPonto = match[2].replace(`.`, "");
+          count++;
+          textRegex =  textRegex + `${count};${match[1]};${NsemPonto};${EsemPonto}\n`;
+        }
+        break;
   }
 
 
