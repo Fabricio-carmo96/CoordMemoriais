@@ -54,7 +54,7 @@ function gerarCoordXLS(){
         const NsemPonto = match[3].replace(/\./g, '');
         const NcomPonto = NsemPonto.replace(`,`,'.');
         const EsemPonto = match[2].replace(/\./g, "");
-        const EcomPonto = NsemPonto.replace(`,`,'.');
+        const EcomPonto = EsemPonto.replace(`,`,'.');
         count++;
         textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
       }
@@ -110,7 +110,7 @@ function gerarCoordTXT(){
         const NsemPonto = match[3].replace(/\./g, '');
         const NcomPonto = NsemPonto.replace(`,`,'.');
         const EsemPonto = match[2].replace(/\./g, "");
-        const EcomPonto = NsemPonto.replace(`,`,'.');
+        const EcomPonto = EsemPonto.replace(`,`,'.');
         count++;
         textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
       }
