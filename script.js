@@ -37,7 +37,7 @@ input.addEventListener("change", () => {
   reader.readAsText(file);
 });
 
-function gerarCoord(){
+function gerarCoordXLS(){
   var escolha = select.options[select.selectedIndex].value;
   switch (escolha){
 
@@ -46,7 +46,7 @@ function gerarCoord(){
         const NsemPonto = match[3].replace(/\./g, '');
         const NcomPonto = NsemPonto.replace(`,`,'.');
         const EsemPonto = match[2].replace(/\./g, "");
-        const EcomPonto = NsemPonto.replace(`,`,'.');
+        const EcomPonto = EsemPonto.replace(`,`,'.');
         count++;
         textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
       }
@@ -65,7 +65,7 @@ function gerarCoord(){
         const NsemPonto = match[2].replace(/\./g, '');
         const NcomPonto = NsemPonto.replace(`,`,'.');
         const EsemPonto = match[3].replace(/\./g, "");
-        const EcomPonto = NsemPonto.replace(`,`,'.');
+        const EcomPonto = EsemPonto.replace(`,`,'.');
         count++;
         textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
       }
@@ -76,7 +76,7 @@ function gerarCoord(){
           const NsemPonto = match[3].replace(/\./g, '');
           const NcomPonto = NsemPonto.replace(`,`,'.');
           const EsemPonto = match[2].replace(/\./g, "");
-          const EcomPonto = NsemPonto.replace(`,`,'.');
+          const EcomPonto = EsemPonto.replace(`,`,'.');
           count++;
           textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
         }
@@ -88,10 +88,66 @@ function gerarCoord(){
   const type = 'xls';
   var data = new Blob([regexcsv], { type });
   var url = window.URL.createObjectURL(data);
-  const downloadLink = document.getElementById("download_link");
+  const downloadLink = document.getElementById("download_linkXLS");
   downloadLink.href = url;
   downloadLink.click();
-}
+};
+
+function gerarCoordTXT(){
+  var escolha = select.options[select.selectedIndex].value;
+  switch (escolha){
+
+    case '1':
+      for (const match of file.matchAll(regex1)) {
+        const NsemPonto = match[3].replace(/\./g, '');
+        const NcomPonto = NsemPonto.replace(`,`,'.');
+        const EsemPonto = match[2].replace(/\./g, "");
+        const EcomPonto = EsemPonto.replace(`,`,'.');
+        count++;
+        textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
+      }
+      for (const match of file.matchAll(subregex1)) {
+        const NsemPonto = match[3].replace(/\./g, '');
+        const NcomPonto = NsemPonto.replace(`,`,'.');
+        const EsemPonto = match[2].replace(/\./g, "");
+        const EcomPonto = NsemPonto.replace(`,`,'.');
+        count++;
+        textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
+      }
+      break;
+
+    case '2':
+      for (const match of file.matchAll(regex2)) {
+        const NsemPonto = match[2].replace(/\./g, '');
+        const NcomPonto = NsemPonto.replace(`,`,'.');
+        const EsemPonto = match[3].replace(/\./g, "");
+        const EcomPonto = EsemPonto.replace(`,`,'.');
+        count++;
+        textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
+      }
+      break;
+
+      case '3':
+        for (const match of file.matchAll(regex3)) {
+          const NsemPonto = match[3].replace(/\./g, '');
+          const NcomPonto = NsemPonto.replace(`,`,'.');
+          const EsemPonto = match[2].replace(/\./g, "");
+          const EcomPonto = EsemPonto.replace(`,`,'.');
+          count++;
+          textRegex = textRegex + `${count};${match[1]};${NcomPonto};${EcomPonto}\n`;
+        }
+        break;
+  }
+
+  const regexcsv = textRegex.split(";");
+  console.log(regexcsv);
+  const type = 'text/plain';
+  var data = new Blob([regexcsv], { type });
+  var url = window.URL.createObjectURL(data);
+  const downloadLink = document.getElementById("download_linkTXT");
+  downloadLink.href = url;
+  downloadLink.click();
+};
 
   
 
