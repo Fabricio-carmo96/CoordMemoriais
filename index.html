@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>ConVértice</title>
   </head>
   <style type="text/css">
@@ -17,6 +18,14 @@
     h1 {
       color: green;
       margin-top: 30px;
+    }
+
+    h4{
+      text-align: left;
+    }
+
+    li {
+      text-align: left;
     }
   
     /* Add styles to the container div */
@@ -51,69 +60,24 @@
       margin-top: 15px;
       padding: 10px;
     }
-  </style>
-  <!DOCTYPE html>
-  <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Memorial para Coordenadas</title>
-      <style type="text/css">
-        /* Add styles to the body */
-        body {
-          font-family: Arial, sans-serif;
-          text-align: center;
-        }
-        
-        /* Add styles to the header */
-        h1 {
-          color: green;
-          margin-top: 30px;
-        }
-  
-        /* Add styles to the container div */
-        .container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-top: 30px;
-        }
-  
-        /* Add styles to the input elements */
-        input[type="file"] {
-          margin-top: 10px;
-          padding: 10px;
-        }
-  
-        /* Add styles to the select element */
-        select {
-          margin-top: 10px;
-          padding: 10px;
-        }
-  
-        /* Add styles to the textarea element */
-        textarea {
-          margin-top: 15px;
-          width: 70%;
-          padding: 10px;
-        }
-  
-        /* Add styles to the button element */
-        button {
-          margin-top: 15px;
-          padding: 10px;
-        }
 
-        #ParagTips {
-          text-align: left;
-        }
-      </style>
+    .button {
+    width: 115px;
+    height: 40px;
+    background: #0d6cfc;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+  </style>
 
   <body>
       <h1 style="color: green">Extrair Vértices e Coordenadas de Memoriais</h1>
       <div>
         <p><strong> Escolha um arquivo em formato TXT</strong></p>
+        <a class="button" href=#tips>Ver Instruções</a></br>
         <input type="file" accept=".txt" id="inputElement" />
 
         <label for="memoType">Escolha um tipo de memorial:</label>
@@ -122,6 +86,8 @@
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
+		      <option value="4">4</option>
+          <option value="5">5</option>
         </select>
 
         <textarea
@@ -131,8 +97,8 @@
         >
         </textarea>
       </div>
-      <button id="subxls" onclick="gerarCoordXLS()">Gerar arquivos com coordenadas XLS</button>
-      <button id="subtxt" onclick="gerarCoordTXT()">Gerar arquivos com coordenadas TXT </button>
+      <button id="subxls" class="btn btn-primary" onclick="gerarCoordXLS()">Gerar arquivos com coordenadas XLS</button>
+      <button id="subtxt" class="btn btn-primary" onclick="gerarCoordTXT()">Gerar arquivos com coordenadas TXT </button>
     
       <a
         style="display: none;"
@@ -149,17 +115,47 @@
       ></a
     >
   <div>
-  <h1>Instruções</h1>
-  <h3>TIPOS DE MEMORIAIS</h3>
-  <p id="ParagTips">Lista com os tipos de memoriais. Acima você tem a opção de escolher tipo de memorial, escolha o número correspondende com o tipo de memorial que você possui. Caso o seu memorial não se encaixe em nenhum dos tipos, entre em contato com a Gilza ou Fabrício, para que possa ser adicionado. <br/><br/>
-
-  <strong> Tipo 1:</strong> Cuja  descrição  se  inicia  no  vértice  V01  de coordenada Este (X) 687.988,154 m e Norte (Y) 7.843.403,313 m, deste segue [...] Do vértice V01 segue até o vértice V02, de coordenada U T M E= 688.042,0860 m e N= 7.843.346,3460 m, no azimute de 136°34'03", na extensão de 78,450 m; Do vértice V02 segue até o vértice V03, de coordenada U T M E= 688.075,4870 m e N= 7.843.317,9170 m, no azimute de 130°24'09", na extensão de 43,860 m; [...] <br/><br/>
-
-  <strong>Tipo 2:</strong> Inicia-se a descrição deste perímetro no vértice V 2205, de coordenadas N 7.836.776,122m e E 667.998,291m;   [...] até o vértice V 2206, de coordenadas N 7.836.774,372m e E 667.997,190m;  220°35'41" e 7,49 m até o vértice V 2207, de coordenadas N 7.836.768,682m e E 667.992,314m;  225°56'31" e 13,42 m <br/><br/>
-    
-  <strong>Tipo 3:</strong> Inicia-se a descrição deste perímetro no vértice  V01, definido pelas coordenadas E: 687.712,161 m e N: 7.827.574,432 m, [...]  até o vértice V02, definido pelas coordenadas E: 687.681,478 m e N: 7.827.575,579 m; [...]  até o vértice V03, definido pelas coordenadas E: 687.685,492 m e N: 7.827.591,964 m; <br/><br/>
-    </p>
-    </div>
+    <h1 id="tips">Instruções</h1>
+    <h4>Passo a Passo</h4>
+<ol>
+  <li>Escolha um memorial em formato TXT (<a target="_blank" href="https://documento.online-convert.com/pt/converter/doc-para-txt"> Site para converter DOC para TXT AQUI</a> ou use a função "Salvar como" e escolha Texto no Word/Libre)</li>
+  <li>Escolha um tipo de memorial de acordo com a tabela de memoriais abaixo</li>
+  <li>Após escolher o arquivo, irá aparecer o texto dentro do quadro acima, é normal o texto estar sem espaço entre as palavras</li>
+  <li>Antes de gerar o arquivo com as coordenadas, verifique se o texto que está no quadro corresponde com o seu memorial</li>
+  <li>Clique no botão abaixo do quadro para gerar o arquivo com as coordenadas, você pode gerar em XLS ou TXT</li>
+</ol>
+    <table class="table table-striped table-bordered">
+      <h5>Tabela com tipos de memoriais</h5>
+      <thead>
+        <tr>
+          <th style = "width: 10%;">Tipo</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Cuja  descrição  se  inicia  no  <strong>vértice</strong>  V01  <strong>de coordenada Este (X) 687.988,154 m e Norte (Y) 7.843.403,313 m </strong> , deste segue [...]<strong>Do vértice V01 segue até o vértice V02, de coordenada U T M E= 688.042,0860 m e N= 7.843.346,3460 m</strong></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td> Inicia-se a descrição deste perímetro no <strong>vértice V 2205, de coordenadas N 7.836.776,122m e E 667.998,291m</strong>;   [...] até o <strong>vértice V 2206, de coordenadas N 7.836.774,372m e E 667.997,190m</strong>;  220°35'41" e 7,49 m até o vértice V 2207, de coordenadas N 7.836.768,682m e E 667.992,314m;  225°56'31" e 13,42 m </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td> Inicia-se a descrição deste perímetro no <strong>vértice  V01, definido pelas coordenadas E: 687.712,161 m e N: 7.827.574,432 m</strong>, [...]  até o <strong>vértice V02, definido pelas coordenadas E: 687.681,478 m e N: 7.827.575,579 m</strong>; [...]  até o vértice V03, definido pelas coordenadas E: 687.685,492 m e N: 7.827.591,964 m;</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>vértice PV-V-0001, georreferenciado no Sistema Geodésico Brasileiro, DATUM - SIRGAS2000, MC-45°W, de coordenadas N 7.828.210,204m e E 685.579,544m</strong> até o vértice <strong>PV-V-0002, de coordenadas N 7.828.209,673m e E 685.590,821m;</strong></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong> ponto 1, com coordenada N- 7843992.0761 e E-666552.588</strong>, ate o <strong>ponto 2, com coordenada N- 7843979.288 e E- 666506.828</strong>, ate o ponto 3, com coordenada N- 7843963.0492 e E- 666439.9307</td>
+        </tr>
+      </tbody>
+    </table>    
+  </div>
     <script src="script.js"></script>
   </body>
 </html>
