@@ -131,7 +131,7 @@ function gerarCoordTXT() {
         for (const match of file.matchAll(regex4)) {
           textRegex = textRegex + `Ponto ${match[1]};${match[2]};${match[3]}\n`;
         }
-        break;
+      break;
   }
   const type = "text/plain";
   var data = new Blob([textRegex], { type });
