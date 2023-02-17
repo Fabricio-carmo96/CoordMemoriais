@@ -73,7 +73,7 @@ function gerarCoordXLS() {
         textRegex = textRegex + `${match[1]};${NsemPonto};${EsemPonto}\n`;
       }
       break;
-      case "5":
+    case "5":
         for (const match of file.matchAll(regex4)) {
           textRegex = textRegex + `Ponto ${match[1]};${match[2]};${match[3]}\n`;
         }
@@ -127,7 +127,7 @@ function gerarCoordTXT() {
         textRegex = textRegex + `${match[1]};${NsemPonto};${EsemPonto}\n`;
       }
       break;
-      case "5":
+    case "5":
         for (const match of file.matchAll(regex4)) {
           textRegex = textRegex + `Ponto ${match[1]};${match[2]};${match[3]}\n`;
         }
