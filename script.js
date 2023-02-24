@@ -2,10 +2,9 @@ let input = document.querySelector("input");
 let textarea = document.querySelector("textarea");
 let select = document.getElementById("memoType");
 const regex =
-  /\b(PV-V-\d{4}|[A-Z] ?-?\d+|ponto \d+)\b.*?\b(\d+,\d+).*?\b(\d+,\d+)/g;
-const regex2 = /\b(PV-V-\d{4}|[A-Z] ?-?\d+|ponto \d+)\b.*?\b(\d+,\d+).*?\b(\d+,\d+)/g;  
-const regex3 = /inicia no vértice (PV-V-\d{4}|[A-Z]-?\d+|ponto \d+).*?\b(\d+,\d+).*?\b(\d+,\d+)/g;
-const subregex3 = /até o vértice (PV-V-\d{4}|[A-Z]-?\d+|ponto \d+).*?\b(\d+,\d+).*?\b(\d+,\d+)/g;
+  /\b(PV-V-\d{1,4}[A-Z]?|[A-Z]-?\d{1,4}[A-Z]?|ponto \d+)\b(, de .*?| de.*?|, georreferenciado.*?)\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+)/g;
+const regex2 = /\b(PV-V-\d{4}|[A-Z] ?-?\d+|ponto \d+)\b.*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+)/g;  
+const regex3 = /((inicia no vértice (PV-V-\d{4}|[A-Z]-?\d+))|(até o vértice (PV-V-\d{4}|[A-Z]-?\d+))).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+)/g;
 
 var file;
 var file1;
@@ -39,22 +38,23 @@ function gerarCoordTXT() {
   switch (escolha) {
     case "1":
       for (const match of file.matchAll(regex)) {
-        textRegex = textRegex + `${match[1]};${match[2]};${match[3]}\n`;
+        textRegex = textRegex + `${match[1]};${match[3]};${match[4]}\n`;
       }
       break;
 
     case "2":
-        for (const match of file1.matchAll(regex)) {
+        for (const match of file1.matchAll(regex2)) {
           textRegex = textRegex + `${match[1]};${match[2]};${match[3]}\n`;
         }
         break;
 
     case "3":
        for (const match of file.matchAll(regex3)) {
-        textRegex = textRegex + `${match[1]};${match[2]};${match[3]}\n`;
-       }
-       for (const match of file.matchAll(subregex3)) {
-        textRegex = textRegex + `${match[1]};${match[2]};${match[3]}\n`;
+        if(match[3]!=null)
+        textRegex = textRegex + `${match[3]};${match[6]};${match[7]}\n`;
+        else
+        textRegex = textRegex + `${match[5]};${match[6]};${match[7]}\n`;
+
        }
        break;
   }
@@ -73,12 +73,12 @@ function gerarCoordXLS() {
   switch (escolha) {
     case "1":
       for (const match of file.matchAll(regex)) {
-        textRegex = textRegex + `${match[1]};${match[2]};${match[3]}\n`;
+        textRegex = textRegex + `${match[1]};${match[3]};${match[4]}\n`;
       }
       break;
 
     case "2":
-        for (const match of file1.matchAll(regex)) {
+        for (const match of file1.matchAll(regex2)) {
           textRegex = textRegex + `${match[1]};${match[2]};${match[3]}\n`;
         }
         break;
