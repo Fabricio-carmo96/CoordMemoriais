@@ -2,7 +2,7 @@ let input = document.querySelector("input");
 let textarea = document.querySelector("textarea");
 let select = document.getElementById("memoType");
 const regex =
-  /\b([A-Z]\d+|[A-Z]+-[A-Z]-\d{1,6}[A-Z]?|[A-Z]-?\d{1,4}[A-Z]?|ponto \d+|[A-Z]\d+|[A-Z] \d+)\b(, de .*?| de.*?|, georreferenciado.*?| com.*?)\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+)/g;
+  /\b([A-Z]\d+|[A-Z]+-[A-Z]-\d{1,6}[A-Z]?|[A-Z]-?\d{1,4}[A-Z]?|ponto \d+|[A-Z]\d+|[A-Z] \d+|vértice \d+)\b(, de .*?| de.*?|, georreferenciado.*?| com.*?)\b\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+)/g;
 const regex2 = /\b(PV-V-\d{4}|[A-Z] ?-?\d+|ponto \d+)\b.*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+)/g;  
 const regex3 = /((inicia no vértice (PV-V-\d{4}|[A-Z]-?\d+))|(até o vértice (PV-V-\d{4}|[A-Z]-?\d+))).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+).*?\b(\d+\.\d+\.\d+,\d+|\d+\.\d+,\d+|\d+\.\d+|\d+,\d+)/g;
 
